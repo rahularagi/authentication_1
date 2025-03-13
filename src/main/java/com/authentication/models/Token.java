@@ -9,7 +9,7 @@ import java.util.Date;
 
 @Getter
 @Setter
-@Entity
+@Entity(name = "token")
 public class Token extends BaseModel
 {
     private String value;

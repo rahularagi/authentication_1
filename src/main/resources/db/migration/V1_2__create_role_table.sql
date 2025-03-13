@@ -1,25 +1,20 @@
-CREATE TABLE "public"."role"
-(
-    id BIGINT NOT NULL,
-    name VARCHAR(255) NULL,
-    CONSTRAINT pk_role PRIMARY KEY(id)
+CREATE TABLE role (
+    id BIGSERIAL PRIMARY KEY,
+    name VARCHAR(255) NULL
 );
 
-CREATE TABLE "public"."token"
-(
-    id BIGINT NOT NULL,
-    value VARCHAR(255) NULL,
-    user_id BIGINT NULL,
+CREATE TABLE users (  -- Renamed from "user" to "users"
+    id BIGSERIAL PRIMARY KEY,
+    name VARCHAR(255) NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,  -- Ensured email is unique
+    hashed_password VARCHAR(255) NOT NULL,
+    is_email_verified BOOLEAN NOT NULL DEFAULT FALSE
+);
+
+CREATE TABLE token (
+    id BIGSERIAL PRIMARY KEY,
+    value VARCHAR(255) NOT NULL,
+    user_id BIGINT NOT NULL,
     expiry_at TIMESTAMP NULL,
-    CONSTRAINT pk_token PRIMARY KEY(id)
-);
-
-CREATE TABLE "public"."user"
-(
-    id BIGINT NOT NULL,
-    name VARCHAR(255) NULL,
-    email VARCHAR(255) NULL,
-    hashed_password VARCHAR(255) NULL,
-    is_email_verified BIT(1) NOT NULL,
-    CONSTRAINT pk_user PRIMARY KEY (id)
+    CONSTRAINT fk_token_user FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
