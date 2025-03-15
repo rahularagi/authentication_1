@@ -1,0 +1,8 @@
+ALTER TABLE role
+ADD COLUMN is_deleted BOOLEAN;
+
+ALTER TABLE users
+ADD COLUMN is_deleted BOOLEAN;
+
+ALTER TABLE token
+ADD COLUMN is_deleted BOOLEAN;
