@@ -1,0 +1,2 @@
+ALTER TABLE authorizationConsent
+RENAME TO authorization_consent;

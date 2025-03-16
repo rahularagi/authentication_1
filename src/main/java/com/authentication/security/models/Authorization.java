@@ -32,7 +32,7 @@ public class Authorization {
     @Column(length = 4000)
     private String accessTokenValue;
     private Instant accessTokenIssuedAt;
-    @Column(name = "access_token_expires_at")
+//    @Column(name = "access_token_expires_at")
     private Instant accessTokenExpiresAt;
     @Column(length = 2000)
     private String accessTokenMetadata;
