@@ -18,9 +18,9 @@ import java.util.UUID;
 public class SpringSecurityClientUpdateTest {
     @Autowired
     private JpaRegisteredClientRepository jpaRegisteredClientRepository;
-//    @Test
+    @Test
 //    @Commit
-//    void storeRegisteredClientIntoDB(){
+    void storeRegisteredClientIntoDB(){
 //        RegisteredClient oidcClient = RegisteredClient.withId(UUID.randomUUID().toString())
 //                .clientId("oidc-client")
 //                .clientSecret("$2a$16$vg8genLo5bwZp48tQXy3xOP4W3zDZdMtLyh5G/ZPJnjLjldGi55AO")
@@ -39,5 +39,5 @@ public class SpringSecurityClientUpdateTest {
 //                .build();
 //
 //        jpaRegisteredClientRepository.save(oidcClient);
-//    }
+    }
 }
